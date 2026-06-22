@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>東京赤坂出差行程 | Tokyo Akasaka Trip</title>
+  <meta name="description" content="東京赤坂兩日出差假日行程，涵蓋米其林餐廳、下午茶、文化景點與藝術體驗，適合商務與休閒並重。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #0f1525;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --bg-card-hover: rgba(255, 255, 255, 0.07);
+      --accent-gold: #c9a84c;
+      --accent-gold-light: #e8c97a;
+      --accent-sakura: #e8a0b4;
+      --accent-teal: #4ecdc4;
+      --accent-indigo: #7b8cde;
+      --text-primary: #f0ece4;
+      --text-secondary: #a89f94;
+      --text-muted: #6a6460;
+      --border: rgba(201, 168, 76, 0.15);
+      --border-hover: rgba(201, 168, 76, 0.4);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --glow-gold: 0 0 40px rgba(201, 168, 76, 0.15);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Noto Sans TC', sans-serif; background-color: var(--bg-primary); color: var(--text-primary); min-height: 100vh; overflow-x: hidden; }
+    .hero { position: relative; height: 100vh; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(123, 140, 222, 0.18) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 20% 100%, rgba(201, 168, 76, 0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(232, 160, 180, 0.10) 0%, transparent 60%), linear-gradient(180deg, #060a14 0%, #0a0e1a 60%, #0f1525 100%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: orbFloat 8s ease-in-out infinite; pointer-events: none; }
+    .orb-1 { width: 400px; height: 400px; background: rgba(201, 168, 76, 0.06); top: -100px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 300px; height: 300px; background: rgba(123, 140, 222, 0.08); bottom: 0; left: -80px; animation-delay: -3s; }
+    .orb-3 { width: 250px; height: 250px; background: rgba(232, 160, 180, 0.07); top: 40%; right: 10%; animation-delay: -5s; }
+    @keyframes orbFloat { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
+    .hero-pattern { position: absolute; inset: 0; opacity: 0.03; background-image: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(201,168,76,1) 30px, rgba(201,168,76,1) 31px); }
+    .hero-content { position: relative; z-index: 2; padding: 2rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201, 168, 76, 0.1); border: 1px solid rgba(201, 168, 76, 0.3); border-radius: 100px; padding: 0.4rem 1.2rem; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--accent-gold-light); text-transform: uppercase; margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease forwards; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.5rem; animation: fadeInDown 0.8s ease 0.1s both; }
+    .hero-title span { background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 50%, var(--accent-sakura) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle-jp { font-family: 'Noto Sans TC', sans-serif; font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 300; color: var(--text-secondary); letter-spacing: 0.3em; margin-bottom: 1rem; animation: fadeInDown 0.8s ease 0.2s both; }
+    .hero-desc { font-size: 1rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.8; animation: fadeInDown 0.8s ease 0.3s both; }
+    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-bottom: 3rem; animation: fadeInDown 0.8s ease 0.4s both; }
+    .hero-tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.82rem; color: var(--text-secondary); }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; animation: fadeIn 1s ease 1s both; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent-gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.3; transform: scaleY(0.8); } 50% { opacity: 1; transform: scaleY(1); } }
+    .day-nav { position: sticky; top: 0; z-index: 100; background: rgba(10, 14, 26, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .day-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .day-nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent-gold); letter-spacing: 0.05em; }
+    .day-nav-tabs { display: flex; gap: 0.25rem; }
+    .day-tab { padding: 0.4rem 1.2rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); cursor: pointer; border: none; background: transparent; transition: all 0.25s ease; text-decoration: none; }
+    .day-tab:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+    .day-tab.active { color: var(--accent-gold); background: rgba(201, 168, 76, 0.1); }
+    main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+    .section-header { text-align: center; padding: 5rem 0 3rem; }
+    .section-day-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 1rem; }
+    .section-day-label::before, .section-day-label::after { content: ''; width: 30px; height: 1px; background: var(--accent-gold); opacity: 0.5; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 0.75rem; line-height: 1.2; }
+    .section-title em { font-style: italic; color: var(--accent-gold-light); }
+    .section-subtitle { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 0.55rem; top: 0.5rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent-gold), transparent 90%); opacity: 0.3; }
+    .timeline-item { position: relative; margin-bottom: 1.75rem; }
+    .timeline-dot { position: absolute; left: -2.15rem; top: 1.4rem; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent-gold); background: var(--bg-primary); transition: all 0.3s ease; z-index: 1; }
+    .timeline-item:hover .timeline-dot { background: var(--accent-gold); box-shadow: 0 0 12px rgba(201,168,76,0.5); }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.75rem; transition: all 0.35s ease; cursor: default; position: relative; overflow: hidden; }
+    .card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%); opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
+    .card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow), var(--glow-gold); }
+    .card:hover::before { opacity: 1; }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
+    .card-time-type { display: flex; flex-direction: column; gap: 0.3rem; }
+    .card-time { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; color: var(--accent-gold); }
+    .card-type { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; }
+    .type-meal { background: rgba(78, 205, 196, 0.12); color: var(--accent-teal); border: 1px solid rgba(78,205,196,0.2); }
+    .type-tea { background: rgba(232, 160, 180, 0.12); color: var(--accent-sakura); border: 1px solid rgba(232,160,180,0.2); }
+    .type-art { background: rgba(123, 140, 222, 0.12); color: var(--accent-indigo); border: 1px solid rgba(123,140,222,0.2); }
+    .type-shrine { background: rgba(201, 168, 76, 0.12); color: var(--accent-gold); border: 1px solid rgba(201,168,76,0.2); }
+    .type-shop { background: rgba(180, 120, 255, 0.12); color: #c49aff; border: 1px solid rgba(180,120,255,0.2); }
+    .type-walk { background: rgba(100, 200, 100, 0.12); color: #7dcf7d; border: 1px solid rgba(100,200,100,0.2); }
+    .card-title { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; line-height: 1.3; }
+    .card-title-jp { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; margin-bottom: 0.6rem; }
+    .card-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem; }
+    .card-meta { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--text-muted); }
+    .card-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .meta-icon { font-size: 0.9rem; }
+    .map-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; color: var(--accent-gold); text-decoration: none; padding: 0.3rem 0.8rem; border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; transition: all 0.25s ease; margin-top: 0.5rem; white-space: nowrap; }
+    .map-link:hover { background: rgba(201,168,76,0.1); border-color: var(--accent-gold); transform: translateY(-1px); }
+    .card-footer { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; }
+    .card-tip { font-size: 0.8rem; color: var(--accent-gold); background: rgba(201,168,76,0.08); padding: 0.3rem 0.7rem; border-radius: 5px; border-left: 2px solid var(--accent-gold); }
+    .card-tip-label { font-weight: 600; }
+    .michelin { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: #ff6b6b; font-weight: 600; }
+    .day-divider { display: flex; align-items: center; gap: 1.5rem; margin: 5rem 0 0; }
+    .day-divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+    .day-divider-text { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+    .tips-section { margin-top: 5rem; padding: 3rem; background: rgba(201, 168, 76, 0.04); border: 1px solid var(--border); border-radius: 20px; position: relative; overflow: hidden; }
+    .tips-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent-gold-light); }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
+    .tip-item { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .tip-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .tip-content h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text-primary); }
+    .tip-content p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.05em; }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    /* ── Character Profiles ── */
+    .crew-section { padding: 5rem 1.5rem 1rem; max-width: 1100px; margin: 0 auto; }
+    .crew-header { text-align: center; margin-bottom: 3rem; }
+    .crew-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .crew-header h2 em { color: var(--accent-sakura); font-style: italic; }
+    .crew-header p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+    .crew-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .crew-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: all 0.35s ease; }
+    .crew-card::after { content: attr(data-emoji); position: absolute; right: -0.5rem; bottom: -1rem; font-size: 6rem; opacity: 0.06; pointer-events: none; }
+    .crew-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .crew-card-you { border-color: rgba(201,168,76,0.35); background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, var(--bg-card) 60%); }
+    .crew-card-e { border-color: rgba(232,160,180,0.35); background: linear-gradient(135deg, rgba(232,160,180,0.06) 0%, var(--bg-card) 60%); }
+    .crew-card-m { border-color: rgba(150,120,255,0.35); background: linear-gradient(135deg, rgba(120,80,220,0.08) 0%, var(--bg-card) 60%); }
+    .crew-avatar { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .crew-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .crew-name-you { color: var(--accent-gold-light); }
+    .crew-name-e { color: var(--accent-sakura); }
+    .crew-name-m { color: #b89aff; }
+    .crew-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .crew-stats { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+    .crew-stat { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; }
+    .crew-stat-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .crew-stat-text { color: var(--text-secondary); line-height: 1.5; }
+    .crew-stat-text strong { color: var(--text-primary); }
+    .crew-quote { margin-top: 1.25rem; padding: 0.9rem 1rem; background: rgba(255,255,255,0.04); border-left: 3px solid; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: var(--text-secondary); font-style: italic; line-height: 1.6; }
+    .crew-card-you .crew-quote { border-color: var(--accent-gold); }
+    .crew-card-e .crew-quote { border-color: var(--accent-sakura); }
+    .crew-card-m .crew-quote { border-color: #b89aff; }
+    /* ── Why block inside cards ── */
+    .why-block { margin-top: 0.75rem; padding: 0.7rem 0.9rem; background: rgba(123,140,222,0.07); border: 1px solid rgba(123,140,222,0.15); border-radius: 8px; font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+    .why-block strong { color: var(--accent-indigo); }
+    .why-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 0.1rem 0.45rem; border-radius: 4px; margin-right: 0.3rem; vertical-align: middle; }
+    .why-you { background: rgba(201,168,76,0.15); color: var(--accent-gold); }
+    .why-e { background: rgba(232,160,180,0.15); color: var(--accent-sakura); }
+    .why-m { background: rgba(180,140,255,0.15); color: #c4a8ff; }
+    @media (max-width: 768px) {
+      .day-nav-tabs { gap: 0; }
+      .day-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+      .timeline { padding-left: 1.75rem; }
+      .card { padding: 1.25rem; }
+      .tips-section { padding: 2rem 1.5rem; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Business Trip · Tokyo 2026</div>
+    <h1 class="hero-title"><span>東京·赤坂</span><br/>兩日精選行程</h1>
+    <p class="hero-subtitle-jp">TOKYO · AKASAKA · 2 DAYS</p>
+    <p class="hero-desc">一個難得的東京假日，精心規劃三人同行的專屬體驗——<br/>米其林級餐廳、雅緻下午茶、文化巡禮與藝術驚喜</p>
+    <div class="hero-tags">
+      <span class="hero-tag">📍 赤坂 Akasaka</span>
+      <span class="hero-tag">👥 3人同行</span>
+      <span class="hero-tag">🌸 文化 × 美食</span>
+      <span class="hero-tag">⭐ 米其林推薦</span>
+      <span class="hero-tag">🎨 藝術體驗</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>向下捲動</span>
+  </div>
+</section>
+
+<nav class="day-nav" id="main-nav">
+  <div class="day-nav-inner">
+    <div class="day-nav-logo">🗾 Tokyo Trip</div>
+    <div class="day-nav-tabs">
+      <a href="#crew" class="day-tab" id="tab-crew">🎭 成員介紹</a>
+      <a href="#day1" class="day-tab active" id="tab-day1">第一天</a>
+      <a href="#day2" class="day-tab" id="tab-day2">第二天</a>
+      <a href="#tips" class="day-tab" id="tab-tips">小提醒</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Character Profiles ── -->
+<section id="crew">
+  <div class="crew-section">
+    <div class="crew-header fade-up">
+      <div class="section-day-label">The Crew</div>
+      <h2>三個人，<em>一個神奇的組合</em></h2>
+      <p>一個29歲的品味青年、一個天秤座的酒豪主管、一個熱愛重機的CTO——<br/>這趟行程就是在同時滿足這三種截然不同的靈魂。</p>
+    </div>
+    <div class="crew-grid">
+
+      <!-- YOU -->
+      <div class="crew-card crew-card-you fade-up" data-emoji="✨">
+        <span class="crew-avatar">🧑‍💼</span>
+        <div class="crew-name crew-name-you">你</div>
+        <div class="crew-role">行程規劃者 · 29歲 · 高級感代言人</div>
+        <div class="crew-stats">
+          <div class="crew-stat"><span class="crew-stat-icon">✨</span><span class="crew-stat-text"><strong>核心需求：</strong>什麼都要有質感，連早餐麵包都要是天然酵母的</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">📸</span><span class="crew-stat-text"><strong>隱藏技能：</span>無論走到哪都能找到最上鏡的角度</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">😤</span><span class="crew-stat-text"><strong>最怕：</strong>帶主管去了個「踩雷」的地方，從此在他們心中留下陰影</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🎯</span><span class="crew-stat-text"><strong>此行任務：</strong>在兩位主管面前展現超齡的品味與規劃力，順便讓E多喝兩杯說不定加薪</span></div>
+        </div>
+        <div class="crew-quote">「行程表我已經研究了三天了，每間餐廳我都確認過Google評價。要踩雷請去找別人。」</div>
+      </div>
+
+      <!-- E -->
+      <div class="crew-card crew-card-e fade-up" data-emoji="♎">
+        <span class="crew-avatar">🍷</span>
+        <div class="crew-name crew-name-e">主管 E</div>
+        <div class="crew-role">天秤座 · 資深主管 · 人類清酒掃地機</div>
+        <div class="crew-stats">
+          <div class="crew-stat"><span class="crew-stat-icon">♎</span><span class="crew-stat-text"><strong>天秤座特質：</strong>選餐廳猶豫20分鐘，但一旦決定就是最貴的那個</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🍶</span><span class="crew-stat-text"><strong>飲酒能力：</strong>傳說在某次尾牙喝完整桌清酒後，隔天準時出席早會並帶了麥當勞</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">💸</span><span class="crew-stat-text"><strong>消費觀：</strong>看到帳單數字的反應是「就這樣？」而不是「好貴」</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🤝</span><span class="crew-stat-text"><strong>和你的共通點：</strong>都覺得環境普通的餐廳根本不算吃飯，叫做填肚子</span></div>
+        </div>
+        <div class="crew-quote">「清酒menu在哪？先把這個搞清楚，其他的再說。」</div>
+      </div>
+
+      <!-- M -->
+      <div class="crew-card crew-card-m fade-up" data-emoji="🏍">
+        <span class="crew-avatar">🤘</span>
+        <div class="crew-name crew-name-m">CTO M</div>
+        <div class="crew-role">重機騎士 · 金屬樂迷 · 最接地氣的CTO</div>
+        <div class="crew-stats">
+          <div class="crew-stat"><span class="crew-stat-icon">🏍</span><span class="crew-stat-text"><strong>週末在幹嘛：</strong>騎重機繞山，戴安全帽聽Metallica，順便想公司架構</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🎸</span><span class="crew-stat-text"><strong>音樂品味：</strong>辦公室放古典樂的那天他換了辦公室的藍芽喇叭</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🍱</span><span class="crew-stat-text"><strong>對高級餐廳的態度：</strong>「只要好吃，路邊攤也是米其林。」（他不知道這樣說不對）</span></div>
+          <div class="crew-stat"><span class="crew-stat-icon">🌟</span><span class="crew-stat-text"><strong>此行驚喜：</strong>teamLab他原本覺得「那不就是燈光秀」，進去之後默默拍了40張照片</span></div>
+        </div>
+        <div class="crew-quote">「懷石料理？那個一人要多少？……沒關係，公司出嘛。」</div>
+      </div>
+
+    </div><!-- /crew-grid -->
+  </div>
+</section>
+
+<main>
+
+  <section id="day1">
+    <div class="section-header fade-up">
+      <div class="section-day-label">Day 1</div>
+      <h2 class="section-title">文化底蘊 &amp; <em>精緻食饗</em></h2>
+      <p class="section-subtitle">從神社晨光到米其林晚宴，感受東京最典雅的一面</p>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">08:00 – 09:00</span>
+              <span class="card-type type-meal">🍳 早餐</span>
+            </div>
+          </div>
+          <div class="card-title">Bricolage Bread &amp; Co.</div>
+          <div class="card-title-jp">ブリコラージュ ブレッド＆カンパニー｜六本木</div>
+          <p class="card-desc">六本木Hills旁的精品麵包咖啡館，以天然酵母手工麵包聞名東京。開放式廚房讓香氣四溢，適合悠閒地開啟一天。提供麵包拼盤、優格、精品咖啡，環境文藝且舒適，無論是主管或年輕人都能享受。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>因為你不能接受第一天早餐是便利商店三角飯糰。<span class="why-tag why-e">E</span>E主管其實根本不在乎吃什麼，只要咖啡夠好就行。<span class="why-tag why-m">M</span>M看到菜單有「手工」兩個字表示放心，以為是路邊烘焙坊的升級版。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>週一～日 08:00–21:00</span>
+            <span><span class="meta-icon">💴</span>約 ¥800–1,500／人</span>
+            <span><span class="meta-icon">🚶</span>從赤坂步行約15分鐘</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">💡 小提醒：</span>早上麵包新鮮出爐，建議8點前到</span>
+            <a href="https://maps.google.com/maps?q=Bricolage+Bread+%26+Co.+Roppongi+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">09:15 – 10:30</span>
+              <span class="card-type type-shrine">⛩ 神社參訪</span>
+            </div>
+          </div>
+          <div class="card-title">日枝神社 千本鳥居</div>
+          <div class="card-title-jp">日枝神社｜赤坂</div>
+          <p class="card-desc">坐落在赤坂鬧區中的靜謐聖域，紅色千本鳥居是東京最具代表性的打卡景點之一。4月~9月開放至18:00，晨間光線灑落鳥居隧道，氛圍格外迷人。主管們普遍喜愛這種帶有歷史厚度的文化體驗，記得求個御守！</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>鳥居隧道的光影效果，完美符合你的Instagram美學需求。<span class="why-tag why-e">E</span>E主管天秤座，喜歡對稱的美感——千本鳥居就是終極對稱。<span class="why-tag why-m">M</span>M說「重機節也有神社祈福文化」，讓他有共鳴感，也順便幫他的重機求個平安符。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>05:00–18:00（4–9月）</span>
+            <span><span class="meta-icon">💴</span>免費入場</span>
+            <span><span class="meta-icon">🚃</span>赤坂站步行3分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">📸 拍照：</span>清晨人少，光線最美，適合合影留念</span>
+            <a href="https://maps.google.com/maps?q=Hie+Shrine+Akasaka+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">10:45 – 12:00</span>
+              <span class="card-type type-walk">🏛 文化景點</span>
+            </div>
+          </div>
+          <div class="card-title">迎賓館赤坂離宮</div>
+          <div class="card-title-jp">迎賓館赤坂離宮｜元赤坂</div>
+          <p class="card-desc">日本唯一的新巴洛克式宮殿建築，平時作為國賓館，定期對外開放參觀。精緻的歐式庭院與宏偉的宮殿外觀令人嘆為觀止，是帶主管參觀的絕佳選擇——既有質感又富有話題性。需提前確認開放日期。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>巴洛克宮殿就是「高級感」的字典解釋，非來不可。<span class="why-tag why-e">E</span>E主管偷偷希望有人幫他拍一張「站在國賓館前」的照片發限動。<span class="why-tag why-m">M</span>M聽到「國賓館」以為是住宿選項，讓你費了一番功夫解釋。最後他說「欸還不錯，比工廠參觀好看」。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>10:00–17:00（需確認開放日）</span>
+            <span><span class="meta-icon">💴</span>本館¥1,500・庭園¥300</span>
+            <span><span class="meta-icon">🚃</span>四谷站步行7分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">⚠️ 注意：</span>部分日期因公務活動關閉，出發前請至官網確認</span>
+            <a href="https://maps.google.com/maps?q=Akasaka+Palace+State+Guest+House+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">12:30 – 14:00</span>
+              <span class="card-type type-meal">🍱 午餐</span>
+            </div>
+            <div class="michelin">⭐⭐ 米其林二星</div>
+          </div>
+          <div class="card-title">菊乃井 赤坂店</div>
+          <div class="card-title-jp">赤坂 菊乃井｜赤坂</div>
+          <p class="card-desc">京都名店菊乃井在東京的旗艦分店，米其林二星，以正統京都懷石料理聞名。季節性套餐精緻典雅，食材講究，非常適合帶長輩主管一同用餐。午間套餐（¥8,000起）比晚間親民許多，用餐環境雅緻莊重。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>米其林二星，懷石料理，京都老店——光唸出來就已經贏了。<span class="why-tag why-e">E</span>E主管一聽到「京都懷石」立刻問「有清酒配餐嗎？」（有的，而且很貴，他不在乎）。<span class="why-tag why-m">M</span>M進門後被要求脫鞋坐榻榻米，沉默了三秒，然後說「還好我今天穿了乾淨的襪子」。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>午市 12:00–13:30（最終入場）</span>
+            <span><span class="meta-icon">💴</span>午餐 ¥8,000–¥15,000／人</span>
+            <span><span class="meta-icon">📞</span>需提前預約</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🗓 預約：</span>建議至少2週前透過官網或Omakase平台預訂</span>
+            <a href="https://maps.google.com/maps?q=Kikunoi+Akasaka+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">15:00 – 17:00</span>
+              <span class="card-type type-tea">☕ 下午茶</span>
+            </div>
+          </div>
+          <div class="card-title">The Classic House at Akasaka Prince</div>
+          <div class="card-title-jp">赤坂プリンスクラシックハウス｜紀尾井町</div>
+          <p class="card-desc">坐落在東京花園Terrace紀尾井町內的歷史建築，前身為舊朝香宮邸，洋溢著1930年代的法式典雅氣息。在充滿故事的古典建築中享用精緻下午茶，與主管們邊品茗邊交流，是兼具品味與意境的完美選擇。建議提前預約座位。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>「皇族舊宅」四個字讓你完全無法拒絕，而且英式下午茶的三層架就是為了拍照而生的。<span class="why-tag why-e">E</span>E主管天秤座愛美，看到1930年代法式古宅當場覺得自己是電影主角。<span class="why-tag why-m">M</span>M原本要喝罐裝咖啡，你勸他說「這是宮殿」才願意坐下來，結果他吃了三塊scone說「其實還不錯」。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>平日 11:00–20:00</span>
+            <span><span class="meta-icon">💴</span>約 ¥4,500–7,000／人</span>
+            <span><span class="meta-icon">🚃</span>永田町站步行5分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">✨ 亮點：</span>歷史建築×英式午茶，主管必定留下深刻印象</span>
+            <a href="https://maps.google.com/maps?q=Classic+House+Akasaka+Prince+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">17:15 – 18:30</span>
+              <span class="card-type type-walk">🌆 散步</span>
+            </div>
+          </div>
+          <div class="card-title">Ark Hills 周邊街道漫步</div>
+          <div class="card-title-jp">アークヒルズ｜赤坂</div>
+          <p class="card-desc">從下午茶步行至Ark Hills，這裡有精品商店、餐廳與美麗的廣場。傍晚在此漫步，感受東京商業菁英的生活節奏。若有興趣可順道參觀Suntory Hall周邊廣場，偶有露天演奏活動。</p>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>商店 11:00–21:00</span>
+            <span><span class="meta-icon">💴</span>逛街免費</span>
+            <span><span class="meta-icon">🚶</span>赤坂站步行5分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🎵 提示：</span>Suntory Hall周邊晚間常有音樂活動</span>
+            <a href="https://maps.google.com/maps?q=Ark+Hills+Akasaka+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">19:00 – 21:00</span>
+              <span class="card-type type-meal">🥩 晚餐</span>
+            </div>
+          </div>
+          <div class="card-title">鐵板燒 あかさか（ANA InterContinental 37F）</div>
+          <div class="card-title-jp">鉄板焼き あかさか｜赤坂</div>
+          <p class="card-desc">位於ANA洲際東京酒店37樓的鐵板燒餐廳，居高臨下俯瞰東京夜景，主打神戶牛與新鮮海鮮。主廚在面前現場烹調的表演式用餐體驗，是商務接待的絕佳場合。高質感環境、頂級食材，能留下完美的一日收尾。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>37樓夜景 + 神戶牛 + 主廚現場表演 = 你心中的「完美收尾」方程式。<span class="why-tag why-e">E</span>E主管看到酒單後叫了整瓶威士忌，說「神戶牛配單一麥芽是標配」。<span class="why-tag why-m">M</span>M看到主廚用鏟子把洋蔥翻成火車頭造型，當場說「這個技術我在野營時也會」，然後認真地和主廚討論了五分鐘鐵板溫控。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>18:00–22:00（最終入場21:00）</span>
+            <span><span class="meta-icon">💴</span>約 ¥18,000–30,000／人</span>
+            <span><span class="meta-icon">👔</span>Smart Casual著裝要求</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🌃 亮點：</span>37樓夜景+現場烹調表演，讓主管印象深刻</span>
+            <a href="https://maps.google.com/maps?q=ANA+InterContinental+Tokyo+Teppanyaki" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="day-divider fade-up">
+    <div class="day-divider-line"></div>
+    <span class="day-divider-text">✦ Day 2 ✦</span>
+    <div class="day-divider-line"></div>
+  </div>
+
+  <section id="day2">
+    <div class="section-header fade-up">
+      <div class="section-day-label">Day 2</div>
+      <h2 class="section-title">藝術巡禮 &amp; <em>東京風情</em></h2>
+      <p class="section-subtitle">沉浸式數位藝術、頂樓觀景與道地和牛，帶主管體驗東京最酷的一面</p>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">08:30 – 09:30</span>
+              <span class="card-type type-meal">🍳 早餐</span>
+            </div>
+          </div>
+          <div class="card-title">Mercer Brunch Roppongi</div>
+          <div class="card-title-jp">マーサー ブランチ｜六本木</div>
+          <p class="card-desc">六本木知名的早午餐名店，以法式吐司、牛排蛋早午餐聞名。空間設計時尚，氛圍輕鬆愉快，適合商務旅行的第二天以輕鬆方式開啟。主管們可以在此分享前一天的感想，為這天的行程做好準備。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>第二天需要輕鬆一點，但「輕鬆」的標準依然是時尚brunch café，不是路口的吉野家。<span class="why-tag why-e">E</span>E主管昨晚喝了多少你不敢問，他此時需要一份扎實的牛排蛋讓靈魂回到肉體。<span class="why-tag why-m">M</span>M說「有肉就行」，然後點了兩份肉排套餐，說「昨天那個懷石料理份量有點小」。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>週一～日 09:00–22:00</span>
+            <span><span class="meta-icon">💴</span>約 ¥1,500–2,500／人</span>
+            <span><span class="meta-icon">🚃</span>六本木站步行5分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🥞 推薦：</span>法式厚片吐司 &amp; 肉排早午餐套餐必點</span>
+            <a href="https://maps.google.com/maps?q=Mercer+Brunch+Roppongi+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">10:00 – 12:30</span>
+              <span class="card-type type-art">🎨 藝術體驗</span>
+            </div>
+          </div>
+          <div class="card-title">teamLab Borderless</div>
+          <div class="card-title-jp">チームラボ ボーダレス｜麻布台ヒルズ</div>
+          <p class="card-desc">麻布台Hills的沉浸式數位藝術美術館，全球獨一無二的無邊界藝術體驗。光影、聲音與人互動交融，每個展間都是全新的驚喜。雖然視覺刺激強烈，但主管們通常也會被這種突破性的藝術形式所震撼——這是一個讓所有年齡層都能感受共鳴的地方。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>你覺得這是這趟最有梗的選擇——帶CTO去看「藝術科技」，在技術面上你們終於有交集。<span class="why-tag why-e">E</span>E主管走進光影互動展間，當場說「這比某公司的發表會視覺效果好多了」，這是他最高級的稱讚。<span class="why-tag why-m">M</span>M事前說「那不就是網美燈光秀」，進去之後你偷拍他在花朵互動展間蹲下來研究程式邏輯長達15分鐘，嘴裡念著「這個粒子系統做得還不錯」。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>10:00–21:00（最終入場20:00）</span>
+            <span><span class="meta-icon">💴</span>大人 ¥3,800（需線上購票）</span>
+            <span><span class="meta-icon">🚃</span>神谷町站步行10分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🎟 重要：</span>票券經常售完，強烈建議提前在官網購買指定時段票</span>
+            <a href="https://maps.google.com/maps?q=teamLab+Borderless+Azabudai+Hills+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">13:00 – 14:30</span>
+              <span class="card-type type-meal">🍜 午餐</span>
+            </div>
+          </div>
+          <div class="card-title">赤坂 雷門 高級焼肉</div>
+          <div class="card-title-jp">焼肉 赤坂 雷門｜赤坂</div>
+          <p class="card-desc">赤坂知名的高檔焼肉餐廳，提供頂級和牛的靜謐用餐環境。不同於喧鬧的燒肉店，以品質和精緻度見長，是帶重要客戶或主管用餐的理想場所。午間套餐CP值高，可以品嚐到A5和牛卻不至於負擔過重。</p>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>午市 11:30–15:00</span>
+            <span><span class="meta-icon">💴</span>午餐 ¥4,000–8,000／人</span>
+            <span><span class="meta-icon">🚃</span>赤坂見附站步行5分</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🐄 亮點：</span>A5黑毛和牛午間套餐，頂級品質合理價格</span>
+            <a href="https://maps.google.com/maps?q=Yakiniku+Raimon+Akasaka+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">15:00 – 16:30</span>
+              <span class="card-type type-tea">☕ 下午茶</span>
+            </div>
+          </div>
+          <div class="card-title">ANA InterContinental Atrium Lounge</div>
+          <div class="card-title-jp">ANAインターコンチネンタル東京 ロビーラウンジ｜赤坂</div>
+          <p class="card-desc">挑高中庭大廳的精緻茶廊，季節性主題下午茶配搭Ronnefeldt精品茶款。視覺呈現華麗、拍照效果絕佳，是赤坂區域最受歡迎的下午茶選擇之一。可以在這裡悠閒地結束午後，和主管分享這兩天的美好回憶。</p>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>下午茶時段 14:00–17:30</span>
+            <span><span class="meta-icon">💴</span>約 ¥5,000–8,000／人</span>
+            <span><span class="meta-icon">🚃</span>溜池山王站直連</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">📱 建議：</span>透過官網或TableCheck預訂，視窗席位最受歡迎</span>
+            <a href="https://maps.google.com/maps?q=ANA+InterContinental+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">16:45 – 18:30</span>
+              <span class="card-type type-shop">🛍 購物</span>
+            </div>
+          </div>
+          <div class="card-title">Tokyo Midtown &amp; Suntory Museum of Art</div>
+          <div class="card-title-jp">東京ミッドタウン &amp; サントリー美術館｜六本木</div>
+          <p class="card-desc">東京Midtown融合高端購物、藝廊與公園綠地，比六本木Hills更為低調典雅。Suntory美術館常設日本傳統美術與工藝展覽，極適合帶主管深度感受日本美學。逛完購物區可在Midtown Garden草坪休憩，享受都市中的片刻寧靜。</p>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>商店 11:00–21:00 ｜ 美術館 10:00–18:00</span>
+            <span><span class="meta-icon">💴</span>美術館入場約¥1,500</span>
+            <span><span class="meta-icon">🚃</span>六本木站直連</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🎁 伴手禮：</span>Midtown內有許多精品日本設計品牌，適合帶禮物回家</span>
+            <a href="https://maps.google.com/maps?q=Tokyo+Midtown+Roppongi" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">18:45 – 20:00</span>
+              <span class="card-type type-art">🌆 夜景觀賞</span>
+            </div>
+          </div>
+          <div class="card-title">Mori Art Museum &amp; Tokyo City View</div>
+          <div class="card-title-jp">森美術館 &amp; 東京シティビュー｜六本木Hills</div>
+          <p class="card-desc">六本木Hills 52樓的觀景台，360度飽覽東京夜景。同票可進入森美術館的當代藝術展，是讓主管眼睛一亮的收尾體驗。無論是都市天際線還是遠方的富士山剪影，傍晚時分的光影轉換尤其壯觀。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>52樓的夕陽+夜景，是今天所有費用裡CP值最高的打卡機會。<span class="why-tag why-e">E</span>E主管站在觀景台上看著東京夜景，說了一句「還是東京適合人住」，這是天秤座最浪漫的時刻。<span class="why-tag why-m">M</span>M一邊看夜景一邊說「如果在這裡騎重機下去一定超爽」，然後被你們兩個用眼神同時制止。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>10:00–22:00（最終入場21:30）</span>
+            <span><span class="meta-icon">💴</span>大人 ¥2,000（含美術館）</span>
+            <span><span class="meta-icon">🚃</span>六本木站直連</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🌅 時機：</span>日落前30分入場，可同時看到黃昏與夜景轉換</span>
+            <a href="https://maps.google.com/maps?q=Mori+Art+Museum+Roppongi+Hills+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-time-type">
+              <span class="card-time">20:30 – 22:30</span>
+              <span class="card-type type-meal">🍶 晚餐</span>
+            </div>
+            <div class="michelin">⭐ 米其林星級</div>
+          </div>
+          <div class="card-title">松川（Matsukawa）</div>
+          <div class="card-title-jp">松川｜赤坂</div>
+          <p class="card-desc">東京最受推崇的懷石料理名店之一，主廚松川天朗以對季節食材的深刻理解聞名。最後一晚安排此等級的晚餐，是為整段旅行畫下完美句號的方式。環境幽靜，服務無微不至，非常適合感謝主管陪伴出差的正式晚宴。若訂不到可選 PIERRE GAGNAIRE（法式二星）。</p>
+          <div class="why-block">🤔 <strong>為什麼選這裡？</strong><br/><span class="why-tag why-you">你</span>行程的最終BOSS級體驗，你花了一個月前就開始嘗試訂位，終於成功的那天你在辦公室小小歡呼了一下。<span class="why-tag why-e">E</span>E主管聽說配餐清酒是由侍酒師根據每道菜現場選瓶，當場眼神發光，說這才叫「對待自己」。<span class="why-tag why-m">M</span>M這次安靜地吃完了整套懷石，沒有抱怨份量，飯後說了一句「下次我想自己騎重機來這裡吃」——這是他給的最高評價。</div>
+          <div class="card-meta">
+            <span><span class="meta-icon">🕐</span>晚市 18:00–22:00</span>
+            <span><span class="meta-icon">💴</span>約 ¥30,000–50,000／人</span>
+            <span><span class="meta-icon">📞</span>訂位極難，需提前1–3個月</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip"><span class="card-tip-label">🔁 備選：</span>PIERRE GAGNAIRE Akasaka（法式，米其林二星，同在赤坂）</span>
+            <a href="https://maps.google.com/maps?q=Matsukawa+Restaurant+Akasaka+Tokyo" target="_blank" class="map-link">🗺 Google Map</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tips">
+    <div class="tips-section fade-up">
+      <h3 class="tips-title">✦ 旅行小提醒</h3>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <div class="tip-icon">📅</div>
+          <div class="tip-content">
+            <h4>提前訂位最重要</h4>
+            <p>菊乃井、松川等高人氣餐廳建議1–3個月前預約。透過 Omakase、Tableall 或飯店禮賓服務協助訂位。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🎟</div>
+          <div class="tip-content">
+            <h4>teamLab 提早購票</h4>
+            <p>票券常常提前售罄，請至 borderless.teamlab.art 官網選擇指定時段票，建議出發前1–2個月購買。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">👔</div>
+          <div class="tip-content">
+            <h4>著裝建議</h4>
+            <p>晚間的米其林餐廳與鐵板燒建議 Smart Casual（避免牛仔褲、球鞋）。帶一套整齊的套裝備用。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🚃</div>
+          <div class="tip-content">
+            <h4>交通建議</h4>
+            <p>赤坂、六本木、麻布台間以計程車最方便（10分鐘內）。長距離移動可搭地鐵日比谷線或千代田線。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">💴</div>
+          <div class="tip-content">
+            <h4>預算估算（3人）</h4>
+            <p>兩天整體預算約 ¥200,000–¥350,000（不含計程車），平均每人每天約 ¥30,000–¥60,000。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🏛</div>
+          <div class="tip-content">
+            <h4>迎賓館開放確認</h4>
+            <p>迎賓館赤坂離宮部分日期因公務活動停止開放，請至官網 geihinkan.go.jp 確認出行當天是否開放。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">🌸</div>
+          <div class="tip-content">
+            <h4>年齡組合搭配</h4>
+            <p>兩位主管50歲，喜好偏向文化底蘊與精緻體驗；而你的29歲活力可引入 teamLab 等當代亮點，形成完美平衡。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-icon">📱</div>
+          <div class="tip-content">
+            <h4>實用 App</h4>
+            <p>Google Maps（導航）、Tabelog（餐廳評價）、TableCheck（訂位）、Suica（交通卡）、Google 翻譯。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>🗾 東京·赤坂 兩日行程 · 以愛與效率精心策劃</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; color: var(--text-muted);">所有餐廳營業時間建議出發前透過 Google Maps 再次確認 · 高人氣場所請提前預約</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = ['crew', 'day1', 'day2', 'tips'];
+  const tabs = { crew: 'tab-crew', day1: 'tab-day1', day2: 'tab-day2', tips: 'tab-tips' };
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        Object.values(tabs).forEach(t => document.getElementById(t)?.classList.remove('active'));
+        if (tabs[id]) document.getElementById(tabs[id])?.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(id => { const el = document.getElementById(id); if (el) navObserver.observe(el); });
+</script>
+</body>
+</html>
